@@ -22,6 +22,18 @@ class _HomeViewState extends State<HomeView> {
           'Inicio',
           style: TextStyle(fontWeight: FontWeight.w500),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => const LoginView()),
+              );
+            },
+            icon: Icon(Icons.logout),
+            tooltip: 'Cerrar sesión',
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -29,40 +41,185 @@ class _HomeViewState extends State<HomeView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 100),
-              const Text(
-                'Pantalla de inicio',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black87,
+              SizedBox(height: 20),
+              Center(
+                child: CircleAvatar(
+                  radius: 80,
+                  backgroundColor: Colors.indigo.shade100,
+                  child: Icon(
+                    Icons.person,
+                    size: 100,
+                    color: Colors.indigo.shade700,
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              const Center(
+                child: Text(
+                  'Admin',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.indigo,
+                  ),
+                ),
+              ),
+              SizedBox(height: 32),
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                elevation: 2,
+                child: ListTile(
+                  leading: Icon(Icons.shield, color: Colors.indigo),
+                  title: Text('Prevención'),
+                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
+                  onTap: () {},
+                ),
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                elevation: 2,
+                child: ListTile(
+                  leading: Icon(Icons.people, color: Colors.indigo),
+                  title: Text('Trabajadores'),
+                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
+                  onTap: () {},
+                ),
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                elevation: 2,
+                child: ListTile(
+                  leading: Icon(Icons.event_note, color: Colors.indigo),
+                  title: Text('Planificador'),
+                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
+                  onTap: () {},
+                ),
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                elevation: 2,
+                child: ListTile(
+                  leading: Icon(
+                    Icons.check_circle_outline,
+                    color: Colors.indigo,
+                  ),
+                  title: Text('Actividades'),
+                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
+                  onTap: () {},
+                ),
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                elevation: 2,
+                child: ListTile(
+                  leading: Icon(Icons.store, color: Colors.indigo),
+                  title: Text('Bodega'),
+                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
+                  onTap: () {},
+                ),
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                elevation: 2,
+                child: ListTile(
+                  leading: Icon(Icons.verified, color: Colors.indigo),
+                  title: Text('Calidad'),
+                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
+                  onTap: () {},
+                ),
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                elevation: 2,
+                child: ListTile(
+                  leading: Icon(Icons.assignment, color: Colors.indigo),
+                  title: Text('ART'),
+                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
+                  onTap: () {},
+                ),
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                elevation: 2,
+                child: ListTile(
+                  leading: Icon(Icons.chat, color: Colors.indigo),
+                  title: Text('Charla 5 minutos'),
+                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
+                  onTap: () {},
+                ),
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                elevation: 2,
+                child: ListTile(
+                  leading: Icon(Icons.lightbulb_outline, color: Colors.indigo),
+                  title: Text('Generador de hallazgos'),
+                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
+                  onTap: () {},
+                ),
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                elevation: 2,
+                child: ListTile(
+                  leading: Icon(Icons.fact_check, color: Colors.indigo),
+                  title: Text('Levantador de hallazgos'),
+                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
+                  onTap: () {},
                 ),
               ),
               const SizedBox(height: 40),
-              ElevatedButton(
-                onPressed: () {
-                  // Navega hacia LoginView y elimina esta pantalla del stack
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (_) => const LoginView()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.redAccent,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 24,
-                    vertical: 12,
+              Center(
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: const CircleBorder(),
+                    padding: const EdgeInsets.all(40),
+                    backgroundColor: Colors.red,
+                    foregroundColor: Colors.white,
+                    elevation: 6,
                   ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                child: const Text(
-                  'Cerrar sesión',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
+                  onPressed: () {
+                    // Acción SOS
+                  },
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.notifications_active,
+                        color: Colors.white,
+                        size: 48,
+                      ),
+                      const SizedBox(height: 8),
+                      const Text(
+                        'SOS',
+                        style: TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 2,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

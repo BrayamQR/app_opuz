@@ -16,9 +16,15 @@ class _LoginViewState extends State<LoginView> {
 
   final _formKey = GlobalKey<FormState>();
 
-  void _login() {
+  void _login() async {
     final user = _userController.text.trim();
     final pass = _passController.text.trim();
+
+    _showLoadingDialog();
+
+    await Future.delayed(const Duration(seconds: 2));
+
+    Navigator.of(context).pop();
 
     if (user == 'admin' && pass == 'admin') {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -39,6 +45,33 @@ class _LoginViewState extends State<LoginView> {
         ),
       );
     }
+  }
+
+  void _showLoadingDialog() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => Dialog(
+        backgroundColor: Colors.white, // Cambiado a blanco
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.asset('assets/logo.png', height: 100),
+              const SizedBox(height: 20),
+              const CircularProgressIndicator(),
+              const SizedBox(height: 20),
+              const Text(
+                'Validando credenciales...',
+                style: TextStyle(color: Colors.black), // Cambiado a negro
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   @override
