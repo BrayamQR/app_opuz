@@ -1,5 +1,6 @@
 import 'package:app_opuz/views/login_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,6 +24,13 @@ class MyApp extends StatelessWidget {
           foregroundColor: Colors.grey.shade50,
         ),
       ),
+      locale: const Locale('es'),
+      supportedLocales: const [Locale('es'), Locale('en')],
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       home: LoginView(),
     );
   }

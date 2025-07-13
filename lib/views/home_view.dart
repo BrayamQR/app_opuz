@@ -1,4 +1,5 @@
 import 'package:app_opuz/views/login_view.dart';
+import 'package:app_opuz/views/prevencion_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -74,7 +75,12 @@ class _HomeViewState extends State<HomeView> {
                   leading: Icon(Icons.shield, color: Colors.indigo),
                   title: Text('Prevención'),
                   trailing: Icon(Icons.arrow_forward_ios, size: 16),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PrevencionView()),
+                    );
+                  },
                 ),
               ),
               Card(
@@ -137,90 +143,6 @@ class _HomeViewState extends State<HomeView> {
                   leading: Icon(Icons.verified, color: Colors.indigo),
                   title: Text('Calidad'),
                   trailing: Icon(Icons.arrow_forward_ios, size: 16),
-                  onTap: () {},
-                ),
-              ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                elevation: 2,
-                child: ListTile(
-                  leading: Icon(Icons.assignment, color: Colors.indigo),
-                  title: Text('ART'),
-                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
-                  onTap: () {},
-                ),
-              ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                elevation: 2,
-                child: ListTile(
-                  leading: Icon(Icons.chat, color: Colors.indigo),
-                  title: Text('Charla 5 minutos'),
-                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
-                  onTap: () {},
-                ),
-              ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                elevation: 2,
-                child: ListTile(
-                  leading: Icon(Icons.lightbulb_outline, color: Colors.indigo),
-                  title: Text('Generador de hallazgos'),
-                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
-                  onTap: () {},
-                ),
-              ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                elevation: 2,
-                child: ListTile(
-                  leading: Icon(Icons.fact_check, color: Colors.indigo),
-                  title: Text('Levantador de hallazgos'),
-                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
-                  onTap: () {},
-                ),
-              ),
-              const SizedBox(height: 40),
-              Center(
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    shape: const CircleBorder(),
-                    padding: const EdgeInsets.all(40),
-                    backgroundColor: Colors.red,
-                    foregroundColor: Colors.white,
-                    elevation: 6,
-                  ),
-                  onPressed: () {
-                    // Acción SOS
-                  },
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(
-                        Icons.notifications_active,
-                        color: Colors.white,
-                        size: 48,
-                      ),
-                      const SizedBox(height: 8),
-                      const Text(
-                        'SOS',
-                        style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 2,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
                 ),
               ),
             ],
