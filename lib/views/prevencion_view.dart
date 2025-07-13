@@ -1,4 +1,5 @@
 import 'package:app_opuz/views/charla_cinco_min_view.dart';
+import 'package:app_opuz/views/programacion.dart';
 import 'package:app_opuz/views/art_view.dart';
 import 'package:app_opuz/views/generador_hallasgos_view.dart';
 import 'package:app_opuz/views/levantador_hallasgos_view.dart';
@@ -64,6 +65,25 @@ class _PrevencionViewState extends State<PrevencionView> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => CharlaCincoMinView(),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                elevation: 2,
+                child: ListTile(
+                  leading: Icon(Icons.event, color: Colors.indigo),
+                  title: Text('Programacion'),
+                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProgramacionView(),
                       ),
                     );
                   },
